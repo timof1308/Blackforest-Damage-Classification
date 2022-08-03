@@ -1,0 +1,1 @@
+https://gdi.thuenen.de:443/geoserver/wo/waldatlas_schutzgebiete_wald/wfs?service=WFS&version=1.0.0&request=GetFeature&outputFormat=SHAPE-ZIP&typeName=Landschaftsschutzgebiete

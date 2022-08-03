@@ -1,0 +1,1 @@
+https://gdi.thuenen.de/geoserver/wo-bwi/bwi3-tnr-voll3-shp/wfs?service=WFS&version=1.0.0&request=GetFeature&outputFormat=SHAPE-ZIP&typeName=GFs_ReinbestandGattung_mitSp_PolyVar
