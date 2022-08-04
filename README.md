@@ -1,8 +1,8 @@
 # Estimating Tree Damages Using Remote Sensing Data in the Black Forest in Germany
 
-Masterthesis written by Timo Fischer
+Masterthesis written by Timo Fischer in June 2022
 
-## Abgabe des Programmcodes
+## About this Repository
 
 The design, implementation, and evaluation of a model for estimating forest condition in the Black Forest was done in the Python programming language (version 3.8). The program code was created in Jupyter Notebooks, which are presented in this directory.
 The naming of the notebooks with the numbers "00" to "07" is based on the procedure of the thesis according to the CRISP-DM procedure model. The business understanding for the understanding of the forest inventories can be taken from the thesis.
@@ -26,20 +26,20 @@ Copy paste the following commands in order to set up your new Python Anaconda En
 
 ### Jupyter Notebooks
 The following Jupyter notebooks are in this project:
-- *"./00 - GermanyGeoLocations.ipynb "* This notebook is used to identify the geocoordinates of the Black Forest and other regions of choice. The data are taken from the Thünen Atlas.
+- *"[00 - GermanyGeoLocations.ipynb](./00%20-%20GermanyGeoLocations.ipynb) "* This notebook is used to identify the geocoordinates of the Black Forest and other regions of choice. The data are taken from the Thünen Atlas.
 
-- *"./01 - DataPrep.ipynb "* This notebook is used for the data preparation of the observation data of the FVA and the Thünen Institute. Beside the preparation of the data an analysis and cleaning of the missings takes place.
+- *"[01 - DataPrep.ipynb](./01%20-%20DataPrep.ipynb) "* This notebook is used for the data preparation of the observation data of the FVA and the Thünen Institute. Beside the preparation of the data an analysis and cleaning of the missings takes place.
 
-- *"./02 - DEM.ipynb "* This notebook is used to download the Digital Elevation Models and to calculate the orientation and slope of the slopes for forest areas.
-- *"./02 - RemoteSensingData.ipynb "* This notebook is used to download remote sensing data and calculate vegetation indices for remote sensing data located in forest areas. Data are stored in raster format for months and then the maximum value per year is calculated. Data export includes vegetation indices of the whole forest area.
-- *"./02 - RemoteSensingDataOuterAOI.ipynb".ipynb* In this notebook downloading of remote sensing data and calculation of vegetation indices for observation data located outside the forest areas is performed. Data are saved in raster format for months and then the maximum value per year is calculated. Der Datenexport umfasst aufgrund der Größe lediglich die Vegetationsindizes in einem bestimmten Umkreis um die Observierungspunkte.
-- *"./02 - SoilData.ipynb"* Dieses Notebook fasst die Bodeninformationskarten des BGR zusammen. Verschiedene Datenformate (Rasterdaten vs. Vektordaten) werden in ein einheitliches Rasterformat kombiniert. Fehlende Werte aufgrund unterschiedlicher Auflösungen werden mit dem nächsten Nachbarn gefüllt.
-- *"./02 - WeatherData.ipynb"* Die historischen Wetteraufzeichnungen des Deutschen Wetterdienstes werden als ZIP Datei heruntergeladen und entpackt. Die Aufzeichnungen der verschiedenen Wetterstationen werden kombiniert und fehlende Werte mit Hilfe einer linearen Interpolation pro Tag gefüllt.
+- *"[02 - DEM.ipynb](./02%20-%20DEM.ipynb) "* This notebook is used to download the Digital Elevation Models and to calculate the orientation and slope of the slopes for forest areas.
+- *"[02 - RemoteSensingData.ipynb](./02%20-%20RemoteSensingData.ipynb) "* This notebook is used to download remote sensing data and calculate vegetation indices for remote sensing data located in forest areas. Data are stored in raster format for months and then the maximum value per year is calculated. Data export includes vegetation indices of the whole forest area.
+- *"[02 - RemoteSensingDataOuterAOI.ipynb](./02%20-%20RemoteSensingDataOuterAOI.ipynb)".ipynb* In this notebook downloading of remote sensing data and calculation of vegetation indices for observation data located outside the forest areas is performed. Data are saved in raster format for months and then the maximum value per year is calculated. Der Datenexport umfasst aufgrund der Größe lediglich die Vegetationsindizes in einem bestimmten Umkreis um die Observierungspunkte.
+- *"[02 - SoilData.ipynb](./02%20-%20SoilData.ipynb)"* This notebook summarizes the soil information maps of the BGR. Different data formats (raster data vs. vector data) are combined into a uniform raster format. Missing values due to different resolutions are filled with the nearest neighbor.
+- *"[02 - WeatherData.ipynb](./02%20-%20WeatherData.ipynb)"* The historical weather records of the German Weather Service are downloaded as a ZIP file and unpacked. The records of the different weather stations are combined and missing values are filled with the help of a linear interpolation per day.
 
-- *"./03 - MergeData.ipynb"* für das Zusammenführen der gelabelten WZE Daten (die sich in den Waldgebieten befinden) und den gebildeten Attributen
-- *"./03 - MergeDataOuterAOI.ipynb"* für das Zusammenführen der gelabelten WZE Daten (die sich <b>nicht</b> in den Waldgebieten befinden) und den gebildeten Attributen
+- *"[03 - MergeData.ipynb](./03%20-%20MergeData.ipynb)"* for merging the labeled WZE data (which are located in the forest areas) and the formed attributes
+- *"[03 - MergeDataOuterAOI.ipynb](./03%20-%20MergeDataOuterAOI.ipynb)"* For merging the labeled WZE data (which are <b>not</b> in the forest areas) and the formed attributes.
 
-- *"./04 - LocationCluster.ipynb"* für die Identifikation ähnlicher geographischer Beobachtungspunkte
+- *"[04 - LocationCluster.ipynb](./04%20-%20LocationCluster.ipynb)"* for the identification of similar geographical observation points
 
 - The modeling for the formation of the base models consists of different steps or iterations. Accordingly, individual Jupyter notebooks are available for the modeling of the basis models:
     - For modeling, a subdivision of the data into binary classification problems is performed:
@@ -59,15 +59,15 @@ The following Jupyter notebooks are in this project:
     - Threshhold Moving to adjust the decision boundary of the binary classification
     - Evaluation and calculation of Cohen's Kappa and F1 measure
     - Jupyter Notebooks for implementation:
-        - *"./05 - EnsembleLearningBaseLearnerDamageClasses.ipynb "* for building the base models for the damage classes "healthy", "damaged" and "dead" (uses the raw unbalanced data)
-        - *"./05 - EnsembleLearningBaseLearnerDamageClassesBalancedData.ipynb "* for building the base models for the damage classes "healthy", "damaged" and "dead" with balanced data
-        - *"./05 - EnsembleLearningBaseLearnerDamagedOnly.ipynb "* for building the base models for the damaged damage classes "low", "medium" and "high" (uses the raw unbalanced data)
-        - *"./05 - EnsembleLearningBaseLearnerDamagedOnlyBalancedData.ipynb "* for building the base models for the damaged damage classes "low", "medium" and "strong" with balanced data
+        - *"[05 - EnsembleLearningBaseLearnerDamageClasses.ipynb](./05%20-%20EnsembleLearningBaseLearnerDamageClasses.ipynb)"* for building the base models for the damage classes "healthy", "damaged" and "dead" (uses the raw unbalanced data)
+        - *"[05 - EnsembleLearningBaseLearnerDamageClassesBalancedData.ipynb](./05%20-%20EnsembleLearningBaseLearnerDamageClassesBalancedData.ipynb)"* for building the base models for the damage classes "healthy", "damaged" and "dead" with balanced data
+        - *"[05 - EnsembleLearningBaseLearnerDamagedOnly.ipynb](./05%20-%20EnsembleLearningBaseLearnerDamagedOnly.ipynb)"* for building the base models for the damaged damage classes "low", "medium" and "high" (uses the raw unbalanced data)
+        - *"[05 - EnsembleLearningBaseLearnerDamagedOnlyBalancedData.ipynb](./05%20-%20EnsembleLearningBaseLearnerDamagedOnlyBalancedData.ipynb)"* for building the base models for the damaged damage classes "low", "medium" and "strong" with balanced data
 
-- *"./06 - EnsembleLearningMetaLearnerDamageClasses.ipynb "* for forming the base models for the "healthy", "damaged" and "dead" classes into ensembles and using a weighted majority difference to determine the final estimate.
-- *"./06 - EnsembleLearningMetaLearnerDamagedOnly.ipynb "* The created base models for the damaged damage classes "low", "medium" and "high" are combined into ensembles and a weighted majority difference is used to determine the final estimate.
+- *"[06 - EnsembleLearningMetaLearnerDamageClasses.ipynb](./06%20-%20EnsembleLearningMetaLearnerDamageClasses.ipynb)"* for forming the base models for the "healthy", "damaged" and "dead" classes into ensembles and using a weighted majority difference to determine the final estimate.
+- *"[06 - EnsembleLearningMetaLearnerDamagedOnly.ipynb](./06%20-%20EnsembleLearningMetaLearnerDamagedOnly.ipynb)"* The created base models for the damaged damage classes "low", "medium" and "high" are combined into ensembles and a weighted majority difference is used to determine the final estimate.
 
-- *"./07 - PredictBlackForest.ipynb "* In this notebook, an estimate of a forest area in the Black Forest is made, for which the previously determined meta-models are used.
+- *"[07 - PredictBlackForest.ipynb](./07%20-%20PredictBlackForest.ipynb)"* In this notebook, an estimate of a forest area in the Black Forest is made, for which the previously determined meta-models are used.
 
 
 ### File Structure
@@ -76,10 +76,13 @@ The following folder structure of the data exists, in which the (raster) data, m
     - [Inventory Data](./data/ThuenenWZE) consisting of data from the Forest Research Institute of Baden Württemberg and the Thünen Institute
     - [ThünenGeoLocations](./data/ThuenenGeoLocations) with the geo-coordinates of the protected landscape areas in Germany
     - [Weather Data](./data/WeatherData)
-    - [Tree distribution map der Baumarten](./data/ThuenenSpatialTreeData) of the Thünen Institute on the basis of the 4th Federal Forest Inventory from 2012.
+    - [Tree distribution map](./data/ThuenenSpatialTreeData) of the Thünen Institute on the basis of the 4th Federal Forest Inventory from 2012.
     - [Digital Elevation Model](./data/DEM)
-    - [Bodeninformationskarten](./data/SoilData) of the Federal Institute for Geosciences and Natural Resources
+    - [Soil Data](./data/SoilData) of the Federal Institute for Geosciences and Natural Resources
     - Modeling Results:
-        - [Basis Modelle](./data/Modeling/BaseLearner)
-        - [Meta Modelle](./data/Modeling/MetaLearner)
-    - [Zwischenablage](./data/tmp) for exports within the notebooks and for transferring the data
+        - [Base Models](./data/Modeling/BaseLearner)
+        - [Meta Models](./data/Modeling/MetaLearner)
+    - [data dump](./data/tmp) for exports within the notebooks and for transferring the data
+
+## Medium Article
+In addition, I have written an article on Medium that summarizes the results and the procedure of my Master Thesis. Click [here](https://medium.com/@timo.fischer1308/estimating-tree-damage-classes-using-remote-sensing-data-6e2d3b961f0d) for the article.
